@@ -26,7 +26,7 @@ public class groundGenerator : MonoBehaviour {
 		bgLayer = GameObject.Find ("backgroundLayer");
 		collectedGround = GameObject.Find ("groundType");
 
-		for (int i = 0; i < 21; i++) {
+		for (int i = 0; i < 50; i++) {
 			GameObject tmpg1 = (Instantiate(Resources.Load("Prefabs/smallGround", typeof(GameObject)))) as GameObject;
 			tmpg1.transform.parent = collectedGround.transform.FindChild("small").transform;
 
@@ -84,7 +84,7 @@ public class groundGenerator : MonoBehaviour {
 			}
 		}
 
-		if (gameLayer.transform.childCount < 25)
+		if (gameLayer.transform.childCount < 50)
 						spawnGround ();
 	
 	}
@@ -125,11 +125,14 @@ public class groundGenerator : MonoBehaviour {
 
 	private void spawnGround() {
 
+
 		if (blankCounter > 0) {
 			setGround ("blank");
 			blankCounter--;
 			return;
 		}
+
+
 		if (middleCounter > 0) {
 			setGround("middle");
 			middleCounter--;
