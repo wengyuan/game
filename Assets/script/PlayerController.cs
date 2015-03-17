@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 
 
 		accTime += Time.deltaTime;
-		if (accTime > 5 && speed <= 10) {	
+		if (accTime > 3 && speed <= 10) {	
 			accTime = 0;
 			speed *= 1.1f;
 		}

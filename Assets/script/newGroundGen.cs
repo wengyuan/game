@@ -20,25 +20,35 @@ public class newGroundGen : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		groundPos = GameObject.Find ("startGround");
+		player = GameObject.Find ("player(Clone)");
 		startUpPosY = groundPos.transform.position.y;
 		fillScene ();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate() {
-		player = GameObject.Find ("player(Clone)");
-		if (player.transform.position.x > groundPos.transform.position.x - 10) {
+		if (player.transform.position.x > groundPos.transform.position.x - 15) {
 			fillScene();
 		}
 
 		if (groundSize > 50) {
-			for(int i = 0; i < 20; i++) {
+			for(int i = 0; i < 10; i++) {
 				Destroy(groundDestoryer.Dequeue().gameObject);
 			}
-			groundSize -= 20;
+			groundSize -= 10;
 		}
+
+
 	}
 
+	void OnGUI() {
+		if (player.transform.position.y < groundPos.transform.position.y - 4) {
+			GUI.Label(new Rect(Screen.width/2-40, 50, 80, 30), "Game Over");
+			if(GUI.Button(new Rect(Screen.width/2-30, 100, 60, 30), "Retry?")) {
+				Application.LoadLevel(0);
+			}
+		}
+	}
 
 	private void fillScene() {
 		int groundCount = Random.Range(8, 20);

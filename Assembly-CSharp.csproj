@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Elf\Script\Elf_Manager.cs" />
+     <Compile Include="Assets\Elf\Script\Manager.cs" />
      <Compile Include="Assets\script\GameCamera.cs" />
      <Compile Include="Assets\script\GameManager.cs" />
      <Compile Include="Assets\script\PlayerController.cs" />
