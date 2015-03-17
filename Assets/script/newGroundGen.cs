@@ -51,7 +51,7 @@ public class newGroundGen : MonoBehaviour {
 	}
 
 	private void fillScene() {
-		int groundCount = Random.Range(8, 20);
+		int groundCount = Random.Range(5, 15);
 		for (int i = 0; i < groundCount; i++) {
 			groundSize++;
 			temp = Instantiate (groundCollection[Random.Range(1, 3)], 
@@ -62,7 +62,7 @@ public class newGroundGen : MonoBehaviour {
 			groundPos = temp;
 		}
 
-		int blankCount = Random.Range (2, 4);
+		int blankCount = Random.Range (1, 4);
 		for (int i = 0; i < blankCount; i++) {
 			groundSize++;
 			temp = Instantiate (groundCollection[0], 
