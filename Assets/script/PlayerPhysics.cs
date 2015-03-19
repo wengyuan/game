@@ -59,7 +59,7 @@ public class PlayerPhysics : MonoBehaviour {
 				grounded = true;
 				
 				break;
-				
+						
 			}
 		}
 		
