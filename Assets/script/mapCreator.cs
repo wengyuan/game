@@ -18,6 +18,6 @@ public class mapCreator : MonoBehaviour {
 			speed*=2;
 		}
 		Instantiate (obj, transform.position, Quaternion.identity);
-		Invoke ("Spawn", ((10/speed))); //spawn
+		Invoke ("Spawn", ((10/speed)));
 	}
 }
