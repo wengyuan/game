@@ -46,8 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Elf\Script\Elf_Manager.cs" />
-     <Compile Include="Assets\Elf\Script\Manager.cs" />
+     <Compile Include="Assets\script\BoxGizmos.cs" />
+     <Compile Include="Assets\script\Entity.cs" />
      <Compile Include="Assets\script\GameCamera.cs" />
      <Compile Include="Assets\script\GameManager.cs" />
      <Compile Include="Assets\script\PlayerController.cs" />
@@ -55,6 +55,12 @@
      <Compile Include="Assets\script\groundGenerator.cs" />
      <Compile Include="Assets\script\mapCreator.cs" />
      <Compile Include="Assets\script\newGroundGen.cs" />
+     <Compile Include="Assets\script\sawblade.cs" />
+     <Compile Include="Assets\script\shot.cs" />
+     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+ <Reference Include="Assembly-UnityScript-firstpass">
+ <HintPath>/Users/wengyuan/game/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>

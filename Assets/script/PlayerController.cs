@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(PlayerPhysics))]
-public class PlayerController : MonoBehaviour {
+public class PlayerController : Entity {
 
 
 	public float accTime = 0;
@@ -19,10 +19,14 @@ public class PlayerController : MonoBehaviour {
 	private PlayerPhysics playerPhysics;
 
 	private bool jump = false;
-	
+
+	private GameManager manager;
+
 
 	void Start () {
 		playerPhysics = GetComponent<PlayerPhysics>();
+		manager = Camera.main.GetComponent<GameManager>();
+
 	}
 	
 	void Update () {
@@ -58,6 +62,7 @@ public class PlayerController : MonoBehaviour {
 		amountToMove.x = currentSpeed;
 		amountToMove.y -= gravity * Time.deltaTime;
 		playerPhysics.Move(amountToMove * Time.deltaTime);
+
 	}
 	
 	// Increase n towards target by speed
@@ -71,4 +76,11 @@ public class PlayerController : MonoBehaviour {
 			return (dir == Mathf.Sign(target-n))? n: target; // if n has now passed target then return target, otherwise return n
 		}
 	}
+	
+	void OnTriggerEnter(Collider c) {
+		if (c.tag == "finish") {
+			manager.EndLevel();
+		}
+	}
+
 }

@@ -11,6 +11,7 @@ public class GameCamera : MonoBehaviour {
 	// Set target
 	public void SetTarget(Transform t) {
 		target = t;
+		transform.position = new Vector3 (t.position.x, t.position.y, t.position.z);
 	}
 	
 	// Track target
