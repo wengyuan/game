@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour {
 	private GameCamera cam;
 	private Vector3 checkpoint;
 
-	public static int levelCount = 2;
-	public static int currentLevel = 1;
+	public static int levelCount = 1;
+	public int currentLevel = 0;
 	
 	void Start () {
 		cam = GetComponent<GameCamera>();
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	// Spawn player
-	private void SpawnPlayer(Vector3 spawnPos) {
+	public void SpawnPlayer(Vector3 spawnPos) {
 		currentPlayer = Instantiate(player, spawnPos,  Quaternion.identity) as GameObject	;
 		cam.SetTarget(currentPlayer.transform);
 	}
@@ -39,11 +39,11 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void EndLevel() {
+		currentLevel++;
 		if (currentLevel < levelCount) {
-			currentLevel++;
-			Application.LoadLevel ("scene" + currentLevel);
+			Application.LoadLevel (currentLevel);
 		} else {
-			Debug.Log ("Game Over");			
+			Debug.Log ("Mission Completed");			
 		}
 	}
 }

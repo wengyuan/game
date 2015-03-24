@@ -17,17 +17,18 @@ public class newGroundGen : MonoBehaviour {
 	private int heightLevel = 0;
 	private int groundSize = 0;
 
+	private GameManager manager;
 
 	// Use this for initialization
 	void Start () {
 		groundPos = GameObject.Find ("startGround");
-		player = GameObject.Find ("player(Clone)");
 		startUpPosY = groundPos.transform.position.y;
+		manager = Camera.main.GetComponent<GameManager>();
 		fillScene ();
 	}
-	
 	// Update is called once per frame
 	void FixedUpdate() {
+		player = GameObject.Find ("player(Clone)");
 		if (player.transform.position.x > groundPos.transform.position.x - 15) {
 			fillScene();
 		}
@@ -43,6 +44,7 @@ public class newGroundGen : MonoBehaviour {
 	}
 
 	void OnGUI() {
+		player = GameObject.Find ("player(Clone)");
 		GUI.Label(new Rect(10, 10, 100, 100), "Health: " + player.GetComponent<Entity>().health.ToString());
 		if (player.transform.position.y < groundPos.transform.position.y - 4 || player.GetComponent<Entity>().health <= 0) {
 			player.GetComponent<PlayerController>().speed = 0;
@@ -51,6 +53,7 @@ public class newGroundGen : MonoBehaviour {
 			GUI.Label(new Rect(Screen.width/2-40, 50, 80, 30), "Game Over");
 			if(GUI.Button(new Rect(Screen.width/2-30, 100, 60, 30), "Retry?")) {
 				Application.LoadLevel(0);
+				manager.currentLevel = 0;
 			}
 		}
 	}

@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\script\boom.js" />
      <Compile Include="Assets\script\delete.js" />
-     <Compile Include="Assets\script\shot.js" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/wengyuan/game/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>

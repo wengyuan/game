@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\script\boom.js" />
      <Compile Include="Assets\script\delete.js" />
-     <Compile Include="Assets\script\shot.js" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>

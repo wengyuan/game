@@ -52,11 +52,9 @@
      <Compile Include="Assets\script\GameManager.cs" />
      <Compile Include="Assets\script\PlayerController.cs" />
      <Compile Include="Assets\script\PlayerPhysics.cs" />
-     <Compile Include="Assets\script\groundGenerator.cs" />
      <Compile Include="Assets\script\mapCreator.cs" />
      <Compile Include="Assets\script\newGroundGen.cs" />
      <Compile Include="Assets\script\sawblade.cs" />
-     <Compile Include="Assets\script\shot.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
