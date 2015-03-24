@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 	private Vector3 checkpoint;
 
 	public static int levelCount = 1;
-	public int currentLevel = 0;
+	public static int currentLevel = 0;
 	
 	void Start () {
 		cam = GetComponent<GameCamera>();
@@ -34,16 +34,28 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public void resetCurrentLevel() {
+
+		currentLevel = 0;
+	}
+
+	public int getCurrentLevel() {
+		
+		return currentLevel;
+	}
+
 	public void SetCheckPoint(Vector3 cp) {
 		checkpoint = cp;
 	}
 
 	public void EndLevel() {
-		currentLevel++;
 		if (currentLevel < levelCount) {
+			currentLevel++;
 			Application.LoadLevel (currentLevel);
-		} else {
-			Debug.Log ("Mission Completed");			
+		} 
+		else {
+			Application.LoadLevel (0);
+			resetCurrentLevel();
 		}
 	}
 }
