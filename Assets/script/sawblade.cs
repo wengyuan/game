@@ -4,6 +4,7 @@ using System.Collections;
 public class sawblade : MonoBehaviour {
 
 	public float speed = 300;
+	public Transform explosion;
 
 	// Update is called once per frame
 	void Update () {
@@ -23,8 +24,12 @@ public class sawblade : MonoBehaviour {
 
 		}
 		if (c.tag == "bullet") {
-
-			Debug.Log("explose");
+			Instantiate(Resources.Load("Prefabs/explosion", typeof(GameObject)), c.transform.position, 
+			            Quaternion.identity);
+			Destroy(this.gameObject);
+			Destroy(c.gameObject);
+			GameObject parent = (GameObject.Find("t1(Clone)") as GameObject);
+			Destroy(parent);
 		}
 	}
 }
