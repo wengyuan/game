@@ -45,15 +45,6 @@ public class newGroundGen : MonoBehaviour {
 
 	void OnGUI() {
 		player = GameObject.Find ("player(Clone)");	
-		int level = manager.getCurrentLevel ();
-		if(level == 2) {
-			GUI.Label (new Rect(Screen.width/2-40, 50, 80, 30), "Mission Completed");	
-			if(GUI.Button(new Rect(Screen.width/2-30, 100, 60, 30), "Retry?")) {
-				Application.LoadLevel(0);
-				manager.resetCurrentLevel();
-			}
-		}
-
 		GUI.Label(new Rect(10, 10, 100, 100), "Health: " + player.GetComponent<Entity>().health.ToString());
 		if (player.transform.position.y < groundPos.transform.position.y - 4 || player.GetComponent<Entity>().health <= 0) {
 			player.GetComponent<PlayerController>().speed = 0;

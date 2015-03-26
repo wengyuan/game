@@ -21,7 +21,10 @@ public class sawblade : MonoBehaviour {
 			Destroy(parent, 1);
 			Destroy(temp, 3);
 
+		}
+		if (c.tag == "bullet") {
 
+			Debug.Log("explose");
 		}
 	}
 }

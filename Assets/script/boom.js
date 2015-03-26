@@ -10,9 +10,11 @@ function Update () {
 
 function OnCollisionEnter(theCollision : Collision){
 	print(theCollision.gameObject.name);
-	if(theCollision.gameObject.name == "Ground"){
+	if(theCollision.gameObject.name.Contains("Ground")){
  
-	}else{
+	}
+	
+	if(theCollision.gameObject.tag == "g") {
 		Instantiate(explosion, gameObject.transform.position, transform.rotation); 
 		Destroy(theCollision.gameObject);
 		Destroy(gameObject);
