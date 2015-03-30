@@ -14,6 +14,9 @@ public class PlayerPhysics : MonoBehaviour {
 	private Vector3 originalSize;
 	private Vector3 originalCentre;
 	private float colliderScale;
+
+	private int collisionDivisionX = 5;
+	private int collisionDivisionY = 10;
 	
 	private float skin = .005f;
 	
@@ -43,13 +46,13 @@ public class PlayerPhysics : MonoBehaviour {
 		// Check collisions above and below
 		grounded = false;
 		
-		for (int i = 0; i<3; i ++) {
+		for (int i = 0; i<collisionDivisionX; i ++) {
 			float dir = Mathf.Sign(deltaY);
-			float x = (p.x + c.x - s.x/2) + s.x/2 * i; // Left, centre and then rightmost point of collider
+			float x = (p.x + c.x - s.x/2) + s.x/(collisionDivisionX-1) * i; // Left, centre and then rightmost point of collider
 			float y = p.y + c.y + s.y/2 * dir; // Bottom of collider
 			
 			ray = new Ray(new Vector2(x,y), new Vector2(0,dir));
-			Debug.DrawRay(ray.origin,ray.direction);
+			//Debug.DrawRay(ray.origin,ray.direction);
 			
 			if (Physics.Raycast(ray,out hit,Mathf.Abs(deltaY) + skin,collisionMask)) {
 				// Get Distance between player and ground
@@ -73,13 +76,13 @@ public class PlayerPhysics : MonoBehaviour {
 		
 		// Check collisions left and right
 		movementStopped = false;
-		for (int i = 0; i<3; i ++) {
+		for (int i = 0; i<collisionDivisionY; i ++) {
 			float dir = Mathf.Sign(deltaX);
 			float x = p.x + c.x + s.x/2 * dir;
-			float y = p.y + c.y - s.y/2 + s.y/2 * i;
+			float y = p.y + c.y - s.y/2 + s.y/(collisionDivisionY-1) * i;
 			
 			ray = new Ray(new Vector2(x,y), new Vector2(dir,0));
-			Debug.DrawRay(ray.origin,ray.direction);
+			//Debug.DrawRay(ray.origin,ray.direction);
 			
 			if (Physics.Raycast(ray,out hit,Mathf.Abs(deltaX) + skin,collisionMask)) {
 				// Get Distance between player and ground
@@ -103,6 +106,7 @@ public class PlayerPhysics : MonoBehaviour {
 			Vector3 playerDir = new Vector3 (deltaX, deltaY);
 			Vector3 o = new Vector3(p.x+c.x+s.x/2*Mathf.Sign(deltaX), p.y+c.y+s.y/2*Mathf.Sign(deltaY));
 			ray = new Ray(o, playerDir.normalized);
+			Debug.DrawRay(ray.origin, ray.direction);
 
 			if(Physics.Raycast(ray, Mathf.Sqrt(deltaX*deltaX+deltaY*deltaY), collisionMask)) {
 				grounded = true;

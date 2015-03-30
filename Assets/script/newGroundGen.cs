@@ -69,9 +69,10 @@ public class newGroundGen : MonoBehaviour {
 			                    Quaternion.identity) as GameObject;
 			groundDestoryer.Enqueue(temp);
 			if(groundCount > 9 && i == ran) {
-				Instantiate (groundCollection[4], 
+				GameObject temp2 = Instantiate (groundCollection[4], 
 				                    new Vector2 (groundPos.transform.position.x+groundWidth, startUpPosY+(1+heightLevel*groundWidth)), 
-				                    Quaternion.Euler(0, 90, 0));
+				                    Quaternion.Euler(0, 90, 0)) as GameObject;
+				groundDestoryer.Enqueue(temp2);
 			}
 
 			groundPos = temp;
