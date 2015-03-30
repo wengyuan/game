@@ -54,6 +54,7 @@
      <Compile Include="Assets\script\PlayerPhysics.cs" />
      <Compile Include="Assets\script\mapCreator.cs" />
      <Compile Include="Assets\script\newGroundGen.cs" />
+     <Compile Include="Assets\script\saw.cs" />
      <Compile Include="Assets\script\sawblade.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
